@@ -26,13 +26,16 @@ Requirement Implementations:
   - [x] Fix left arrow key after crash
     - Skier.js: Cleaned up and simplified some of the _move_ and _turn_ functions, as there was conditional checks and logic that could already be leveraged in the switch statement. We can now press the left arrow 1 (or many times as needed to get around obstacle/s) to reset the skier and continue moving left down the mountain.
     - **Note** I would of liked to actually be able to just press the left arrow and have the skier standup and face left. But, I wasn't able to do that quickly, so I moved on.
+  - [x] Fix right arrow key after crash
+    - Found that right arrow key no longer worked after a crash, once fix for left arrow was implemented. Fixed by adjusting turnRight function.
 - [ ] **Write unit tests:**
+      **Note** In a perfect world I would've build the unit tests before fixing the bugs, instead of fixing them and committing without the tests included.
 
   - [ ] Test bug fix for left arrow key after crash: Skier.js
 
-  - [ ] Game.js Tests
+  - [x] Game.js Tests
 
-    - [ ] Testing that all game.js methods are defined and able to be invoked
+    - [x] Testing that all game.js methods are defined and able to be invoked
 
 - [ ] **Extend existing functionality:**
 
