@@ -23,7 +23,7 @@ solution can only gain from having a better foundation.
 Requirement Implementations:
 
 - [x] ~~**Fix a bug:**~~
-  - [ ] Fix left arrow key after crash
+  - [x] Fix left arrow key after crash
     - Skier.js: Cleaned up and simplified some of the _move_ and _turn_ functions, as there was conditional checks and logic that could already be leveraged in the switch statement. We can now press the left arrow 1 (or many times as needed to get around obstacle/s) to reset the skier and continue moving left down the mountain.
     - **Note** I would of liked to actually be able to just press the left arrow and have the skier standup and face left. But, I wasn't able to do that quickly, so I moved on.
 - [ ] **Write unit tests:**
