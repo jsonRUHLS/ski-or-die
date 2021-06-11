@@ -71,7 +71,7 @@ export class Game {
                 event.preventDefault();
                 break;
             case Constants.KEYS.UP:
-                this.skier.turnUp();
+                this.skier.jump();
                 event.preventDefault();
                 break;
             case Constants.KEYS.DOWN:
