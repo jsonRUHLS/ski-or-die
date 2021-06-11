@@ -4,7 +4,6 @@ import { intersectTwoRects, Rect } from "../Core/Utils";
 
 export class Skier extends Entity {
     assetName = Constants.SKIER_DOWN;
-
     direction = Constants.SKIER_DIRECTIONS.DOWN;
     speed = Constants.SKIER_STARTING_SPEED;
 
@@ -65,14 +64,24 @@ export class Skier extends Entity {
         this.setDirection(Constants.SKIER_DIRECTIONS.LEFT_DOWN);
     }
 
+    sleep(time) {
+        return new Promise((resolve) => setTimeout(resolve, time));
+    }
+
     turnRight() {
         this.setDirection(Constants.SKIER_DIRECTIONS.RIGHT_DOWN);
     }
 
-    turnUp() {
-        if (this.direction === Constants.SKIER_DIRECTIONS.LEFT || this.direction === Constants.SKIER_DIRECTIONS.RIGHT) {
-            this.moveSkierUp();
-        }
+    async jump() {
+        console.log("Concurrent Jump Animations Started");
+        await this.sleep(100).then(() => this.setDirection(Constants.SKIER_DIRECTIONS.JUMP));
+        await this.sleep(300).then(() => this.setDirection(Constants.SKIER_DIRECTIONS.JUMP2));
+        await this.sleep(400).then(() => this.setDirection(Constants.SKIER_DIRECTIONS.JUMP3));
+        await this.sleep(400).then(() => this.setDirection(Constants.SKIER_DIRECTIONS.JUMP4));
+        await this.sleep(1000).then(() => {
+            console.log("Resolve going down hill");
+            this.setDirection(Constants.SKIER_DIRECTIONS.DOWN);
+        });
     }
 
     turnDown() {

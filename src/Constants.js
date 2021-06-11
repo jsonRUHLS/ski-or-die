@@ -5,6 +5,10 @@ export const SKIER_CRASH = 'skierCrash';
 export const SKIER_LEFT = 'skierLeft';
 export const SKIER_LEFTDOWN = 'skierLeftDown';
 export const SKIER_DOWN = 'skierDown';
+export const SKIER_JUMP = 'skierJump';
+export const SKIER_JUMP2 = 'skierJump2';
+export const SKIER_JUMP3 = 'skierJump3';
+export const SKIER_JUMP4 = 'skierJump4';
 export const SKIER_RIGHTDOWN = 'skierRightDown';
 export const SKIER_RIGHT = 'skierRight';
 export const TREE = 'tree';
@@ -20,6 +24,10 @@ export const ASSETS = {
     [SKIER_LEFT]: 'img/skier_left.png',
     [SKIER_LEFTDOWN]: 'img/skier_left_down.png',
     [SKIER_DOWN]: 'img/skier_down.png',
+    [SKIER_JUMP]: 'img/skier_jump_1.png',
+    [SKIER_JUMP2]: 'img/skier_jump_2.png',
+    [SKIER_JUMP3]: 'img/skier_jump_3.png',
+    [SKIER_JUMP4]: 'img/skier_jump_4.png',
     [SKIER_RIGHTDOWN]: 'img/skier_right_down.png',
     [SKIER_RIGHT]: 'img/skier_right.png',
     [TREE]: 'img/tree_1.png',
@@ -34,7 +42,11 @@ export const SKIER_DIRECTIONS = {
     LEFT_DOWN: 2,
     DOWN: 3,
     RIGHT_DOWN: 4,
-    RIGHT: 5
+    RIGHT: 5,
+    JUMP: 6,
+    JUMP2: 7,
+    JUMP3: 8,
+    JUMP4: 9
 };
 
 export const SKIER_DIRECTION_ASSET = {
@@ -43,7 +55,11 @@ export const SKIER_DIRECTION_ASSET = {
     [SKIER_DIRECTIONS.LEFT_DOWN]: SKIER_LEFTDOWN,
     [SKIER_DIRECTIONS.DOWN]: SKIER_DOWN,
     [SKIER_DIRECTIONS.RIGHT_DOWN]: SKIER_RIGHTDOWN,
-    [SKIER_DIRECTIONS.RIGHT]: SKIER_RIGHT
+    [SKIER_DIRECTIONS.RIGHT]: SKIER_RIGHT,
+    [SKIER_DIRECTIONS.JUMP]: SKIER_JUMP,
+    [SKIER_DIRECTIONS.JUMP2]: SKIER_JUMP2,
+    [SKIER_DIRECTIONS.JUMP3]: SKIER_JUMP3,
+    [SKIER_DIRECTIONS.JUMP4]: SKIER_JUMP4
 };
 
 export const KEYS = {
