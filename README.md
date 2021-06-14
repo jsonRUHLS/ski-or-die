@@ -23,17 +23,18 @@ solution can only gain from having a better foundation.
 Requirement Implementations:
 
 - [x] ~~**Fix a bug:**~~
-  - [x] Fix left arrow key after crash
+  - [x] ~~Fix left arrow key after crash~~
     - Skier.js: Cleaned up and simplified some of the _move_ and _turn_ functions, as there was conditional checks and logic that could already be leveraged in the switch statement. We can now press the left arrow 1 (or many times as needed to get around obstacle/s) to reset the skier and continue moving left down the mountain.
-    - **Note** I would of liked to actually be able to just press the left arrow and have the skier standup and face left. But, I wasn't able to do that quickly, so I moved on.
-  - [x] Fix right arrow key after crash
+      > **note:** I would of liked to actually be able to just press the left arrow and have the skier standup and face left. But, I wasn't able to do that quickly, so I moved on.
+  - [x] ~~Fix right arrow key after crash~~
     - Found that right arrow key no longer worked after a crash, once fix for left arrow was implemented. Fixed by adjusting turnRight function.
 - [ ] **Write unit tests:**
-      **Note** In a perfect world I would've build the unit tests before fixing the bugs, instead of fixing them and committing without the tests included.
+
+  > **Note** In a perfect world I would've built the unit tests before fixing the bugs, instead of fixing them and committing without the tests included.
 
   - [ ] Test bug fix for left arrow key after crash: Skier.js
 
-  - [x] Game.js Tests
+  - [x] ~~Game.js Tests~~
 
     - [x] Testing that all game.js methods are defined and able to be invoked
 
@@ -43,11 +44,16 @@ Requirement Implementations:
   jump. The asset file for jumps is already included. All you gotta do is make the guy jump. We even included some jump
   trick assets if you wanted to get really fancy!
 
-  - [ ] Have the skier jump by pressing a key AND use the ramp asset to have the skier jump whenever he hits a ramp.
+  - [x] ~~Have the skier jump by pressing a key~~
+    > **note: Press arrow UP key to jump**
+  - [ ] Use the ramp asset to have the skier jump whenever he hits a ramp.
   - [ ] The skier should be able to jump over some obstacles while in the air.
-    - Rocks can be jumped over
-    - Trees can NOT be jumped over
-  - [ ] Anything else you'd like to add to the skier's jumping ability, go for it!
+    > **note:** Tried to work this, but it was a little wonky and never rounded back to work it. Suppose its still part of my troubles with fully handling the collision detection.
+    - [ ] Rocks can be jumped over
+    - [ ] Trees can NOT be jumped over
+  - [x] Anything else you'd like to add to the skier's jumping ability, go for it!
+    - [x] ~~Added full jumping animation~~
+      > **note:** Not fully satisfied with how it stops movement, while animating the jump
 
 - [ ] **Build something new:**
 
@@ -55,13 +61,14 @@ Requirement Implementations:
   a yeti would chase you down and eat you. In Ceros Ski, we've provided assets for a Rhino to run after the skier,
   catch him and eat him.
 
-  - [ ] The Rhino should appear after a set amount of time or distance skied and chase the skier, using the running assets
+  - [x] ~~The Rhino should appear after a set amount of time~~ or distance skied and chase the skier, using the running assets
         we've provided to animate the rhino.
   - [ ] If the rhino catches the skier, it's game over and the rhino should eat the skier.
+    > **note:** I haven't been able to successfully make collision detection work with Rhino
 
 - [ ] **Documentation:**
 
-  - [ ] Update this README file with your comments about your work; what was done, what wasn't, features added & known bugs.
+  - [x] Update this README file with your comments about your work; what was done, what wasn't, features added & known bugs.
   - [ ] Provide a way for us to view the completed code and run it, either locally or through a cloud provider
 
 - **Be original:**
