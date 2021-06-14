@@ -1,8 +1,9 @@
+import { Rect } from "./Utils";
+
 export class AssetManager {
     loadedAssets = [];
 
-    constructor() {
-    }
+    constructor() { }
 
     async loadAssets(assets) {
         const assetPromises = [];
@@ -31,5 +32,15 @@ export class AssetManager {
 
     getAsset(assetName) {
         return this.loadedAssets[assetName];
+    }
+
+    setAssetBounds(asset) {
+        const assetBounds = new Rect(
+            this.x - asset.width / 2,
+            this.y - asset.height / 2,
+            this.x + asset.width / 2,
+            this.y - asset.height / 4
+        )
+        return assetBounds;
     }
 }
