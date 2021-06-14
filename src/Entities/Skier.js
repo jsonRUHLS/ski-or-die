@@ -1,11 +1,12 @@
 import * as Constants from "../Constants";
 import { Entity } from "./Entity";
-import { intersectTwoRects, Rect } from "../Core/Utils";
+import { intersectTwoRects, Rect, sleep } from "../Core/Utils";
 
 export class Skier extends Entity {
     assetName = Constants.SKIER_DOWN;
     direction = Constants.SKIER_DIRECTIONS.DOWN;
     speed = Constants.SKIER_STARTING_SPEED;
+    skierBounds;
 
     constructor(x, y) {
         super(x, y);
@@ -14,6 +15,16 @@ export class Skier extends Entity {
     setDirection(direction) {
         this.direction = direction;
         this.updateAsset();
+    }
+
+    setSkierBounds(asset) {
+        const skierBounds = new Rect(
+            this.x - asset.width / 2,
+            this.y - asset.height / 2,
+            this.x + asset.width / 2,
+            this.y - asset.height / 4
+        )
+        return skierBounds;
     }
 
     updateAsset() {
@@ -64,22 +75,16 @@ export class Skier extends Entity {
         this.setDirection(Constants.SKIER_DIRECTIONS.LEFT_DOWN);
     }
 
-    sleep(time) {
-        return new Promise((resolve) => setTimeout(resolve, time));
-    }
-
     turnRight() {
         this.setDirection(Constants.SKIER_DIRECTIONS.RIGHT_DOWN);
     }
 
     async jump() {
-        console.log("Concurrent Jump Animations Started");
-        await this.sleep(100).then(() => this.setDirection(Constants.SKIER_DIRECTIONS.JUMP));
-        await this.sleep(300).then(() => this.setDirection(Constants.SKIER_DIRECTIONS.JUMP2));
-        await this.sleep(400).then(() => this.setDirection(Constants.SKIER_DIRECTIONS.JUMP3));
-        await this.sleep(400).then(() => this.setDirection(Constants.SKIER_DIRECTIONS.JUMP4));
-        await this.sleep(1000).then(() => {
-            console.log("Resolve going down hill");
+        await sleep(100).then(() => this.setDirection(Constants.SKIER_DIRECTIONS.JUMP));
+        await sleep(300).then(() => this.setDirection(Constants.SKIER_DIRECTIONS.JUMP2));
+        await sleep(400).then(() => this.setDirection(Constants.SKIER_DIRECTIONS.JUMP3));
+        await sleep(400).then(() => this.setDirection(Constants.SKIER_DIRECTIONS.JUMP4));
+        await sleep(1000).then(() => {
             this.setDirection(Constants.SKIER_DIRECTIONS.DOWN);
         });
     }
@@ -90,12 +95,12 @@ export class Skier extends Entity {
 
     checkIfSkierHitObstacle(obstacleManager, assetManager) {
         const asset = assetManager.getAsset(this.assetName);
-        const skierBounds = new Rect(
+        this.skierBounds = new Rect(
             this.x - asset.width / 2,
             this.y - asset.height / 2,
             this.x + asset.width / 2,
             this.y - asset.height / 4
-        );
+        )
 
         const collision = obstacleManager.getObstacles().find((obstacle) => {
             const obstacleAsset = assetManager.getAsset(obstacle.getAssetName());
@@ -107,7 +112,7 @@ export class Skier extends Entity {
                 obstaclePosition.y
             );
 
-            return intersectTwoRects(skierBounds, obstacleBounds);
+            return intersectTwoRects(this.skierBounds, obstacleBounds);
         });
 
         if (collision) {

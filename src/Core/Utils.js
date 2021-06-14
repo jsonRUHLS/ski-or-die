@@ -11,6 +11,10 @@ export function intersectTwoRects(rect1, rect2) {
         rect2.bottom < rect1.top);
 }
 
+export function sleep(time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+}
+
 export class Rect {
     left = 0;
     top = 0;
