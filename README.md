@@ -1,10 +1,10 @@
 # Ski or Die
 
-Welcome to the Ceros Code Challenge - Ski Edition!
+Welcome to the Ski or Die!
 
-For this challenge, we have included some base code for Ceros Ski, our version of the classic Windows game SkiFree. If
-you've never heard of SkiFree, Google has plenty of examples. Better yet, you can play our version here:
-<http://ceros-ski.herokuapp.com/>
+This is my extended version of CEROS base edition which is a version of the classic Windows game SkiFree. If
+you've never heard of SkiFree, Google has plenty of examples. You can play my version here:
+<https://ski-or-die.herokuapp.com/>
 
 Or deploy it locally by running:
 
@@ -101,5 +101,5 @@ how creative candidates get with this.
 - [ ] Provide a way to pause and resume the game
 - [ ] Add a score that increments as the skier skis further
 - [ ] Increase the difficulty the longer the skier skis (increase speed, increase obstacle frequency, etc.)
-- [ ] Deploy the game to a server so that we can play it without having to install it locally
-- [x] Write more unit tests for your code
+- [x] ~~Deploy the game to a server so that we can play it without having to install it locally <https://ski-or-die.herokuapp.com/>~~
+- [x] ~~Write more unit tests for your code~~
